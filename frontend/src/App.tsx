@@ -1,5 +1,5 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, BellIcon, XMarkIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 import { NavLink, useLocation, useParams } from "react-router";
 import { Outlet } from "react-router";
 
@@ -11,20 +11,16 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Dashboard', to: '/' },
-  { name: 'Friends', to: '/friends' },
+  // { name: 'Dashboard', to: '/' },
+  // { name: 'Friends', to: '/friends' },
   { name: 'Programs', to: '/programs' },
-  { name: 'Calendar', to: '/calendar' },
+  // { name: 'Calendar', to: '/calendar' },
 ]
 const userNavigation = [
   { name: 'Your profile', href: '#' },
   { name: 'Settings', href: '#' },
   { name: 'Sign out', href: '#' },
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export const App = () => {
   let location = useLocation();
@@ -38,12 +34,8 @@ export const App = () => {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center">
-                <div className="shrink-0">
-                  <img
-                    alt="Your Company"
-                    src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                    className="size-8"
-                  />
+                <div className="shrink-0 text-indigo-400 font-semibold">
+                  <p>Workout Journal</p>
                 </div>
                 <div className="hidden md:block">
                   <nav className="ml-10 flex items-baseline space-x-4">
@@ -75,11 +67,7 @@ export const App = () => {
                     <MenuButton className="relative flex max-w-xs items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
-                      <img
-                        alt=""
-                        src={user.imageUrl}
-                        className="size-8 rounded-full outline -outline-offset-1 outline-white/10"
-                      />
+                      <UserCircleIcon className="size-8 text-gray-400" />
                     </MenuButton>
 
                     <MenuItems
@@ -101,7 +89,6 @@ export const App = () => {
                 </div>
               </div>
               <div className="-mr-2 flex md:hidden">
-                {/* Mobile menu button */}
                 <DisclosureButton className="group relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
                   <span className="absolute -inset-0.5" />
                   <span className="sr-only">Open main menu</span>
@@ -127,11 +114,7 @@ export const App = () => {
             <div className="border-t border-white/10 pt-4 pb-3">
               <div className="flex items-center px-5">
                 <div className="shrink-0">
-                  <img
-                    alt=""
-                    src={user.imageUrl}
-                    className="size-10 rounded-full outline -outline-offset-1 outline-white/10"
-                  />
+                  <UserCircleIcon className="size-8 text-gray-400" />
                 </div>
                 <div className="ml-3">
                   <div className="text-base/5 font-medium text-white">{user.name}</div>
